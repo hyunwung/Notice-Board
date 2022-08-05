@@ -1,10 +1,10 @@
 import './App.css';
+import MainPage from './components/MainPage/MainPage';
 
 const App = ()=>{
   return (
     <div className="App">
-      <Btn>안녕</Btn>
-      <Btn>뒤로가기</Btn>
+      <MainPage></MainPage>
     </div>
   );
 }
