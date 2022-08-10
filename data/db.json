@@ -21,5 +21,31 @@
       "content": "참고하시라우"
     }
   ],
-  "comments": []
+  "comments": [
+    {
+      "boardsid": "1",
+      "comment": "헛",
+      "id": 1
+    },
+    {
+      "boardsid": "1",
+      "comment": "흐에",
+      "id": 2
+    },
+    {
+      "boardsid": "4",
+      "comment": "ㅇㅇㅇ",
+      "id": 3
+    },
+    {
+      "boardsid": "2",
+      "comment": "ㅇㅇㅇ",
+      "id": 4
+    },
+    {
+      "boardsid": "3",
+      "comment": "감수정",
+      "id": 5
+    }
+  ]
 }

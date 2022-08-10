@@ -12,11 +12,12 @@ export const getCommentIdAsync = createAsyncThunk( // 댓글 조회 , 찾기
 export const postCommentIdAsync = createAsyncThunk( // 댓글 달기
     "comment/postTodosAsync",
     async (payload) => {
+      parseInt(payload.boardsid)
         const response = await axios.post(url2,{
           boardsid:payload.boardsid,
           comment: payload.comment,
         })
-        
+        console.log(response)
         return response.data
 })
 export const updateCommentIdAsync = createAsyncThunk( // 댓글 수정
@@ -49,16 +50,17 @@ export const commentSlice = createSlice({
     },
     extraReducers:{
       [getCommentIdAsync.fulfilled]:(state,{payload}) => {
-        console.log("data !")
-        // console.log(state.payload)
+        console.log("data ! 호출")
         return payload
       },
       [postCommentIdAsync.fulfilled]:(state,{payload}) => {
         console.log("data 등록!")
-        
       },
       [deleteCommentIdAsync.fulfilled]:(state,{payload}) => {
         console.log("data delete !")
+      },
+      [updateCommentIdAsync.fulfilled]:(state,{payload}) => {
+        console.log("data update !")
       }
     }
   });

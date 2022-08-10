@@ -5,13 +5,16 @@ import "./Comment.css"
 
 const Comment = ({id}) => {
     const [state,setState] = useState(false)
-    const [update,setUpdate] = useState(false)
     const [inputCm,setInputCm] = useState("")
     const [idCheck, setIdCheck] = useState(-1)
     const onChange = (e) =>{
         setInputCm(e.target.value)
     }
     const updateComment = (id) => {
+        if (inputCm===""){
+            alert("수정해주세요.")    
+            return
+        }
         parseInt(id)
         dispatch(updateCommentIdAsync({
             id:id,

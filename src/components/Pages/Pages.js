@@ -9,27 +9,29 @@ import "./Pages.css";
 
 function Pages() {
     const dispatch = useDispatch();
-    const {id} = useParams()
+    const params = useParams()
     const [comment,setComment] = useState("")
 
     const commentHandle = (e) => {
         setComment(e.target.value)
     }
     const addComment = (e) => {
+        parseInt(params.id)
         e.preventDefault();
         if (comment === ""){
             alert("댓글을 작성 해주세요.")
         }
+        
         dispatch(
             postCommentIdAsync({
-                boardsid:id,
+                boardsid:params.id,
                 comment:comment
             })
         )
         setComment("")
     }
     useEffect(()=>{
-        dispatch(getCommentIdAsync(id));
+        dispatch(getCommentIdAsync(params.id));
     },[comment])
 
   return (
@@ -37,7 +39,7 @@ function Pages() {
         <Header/>
         <ContentBox>여기엔 내용이 들어갑니당~</ContentBox>
         <CommentContainer>
-            <Comment id={id}></Comment>
+            <Comment id={params}></Comment>
             
         </CommentContainer>
         <div className="input-box">
