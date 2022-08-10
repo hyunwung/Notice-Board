@@ -13,7 +13,6 @@ function BoardWrite() {
   const titleControl = (e) =>{
     e.preventDefault();
     setTitle(e.target.value)
-    
   }
   const contentControl = (e) =>{
     e.preventDefault();

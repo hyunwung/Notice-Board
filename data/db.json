@@ -21,54 +21,5 @@
       "content": "참고하시라우"
     }
   ],
-  "comments": [
-    {
-      "id": 4,
-      "boardsid": 3,
-      "comment": "이것도"
-    },
-    {
-      "boardsid": 2,
-      "comment": "추가요",
-      "id": 5
-    },
-    {
-      "boardsid": "3",
-      "comment": "ㅇㅇㅇ",
-      "id": 6
-    },
-    {
-      "boardsid": "3",
-      "comment": "ㅇㅇㅇㅇㅇ",
-      "id": 7
-    },
-    {
-      "boardsid": "4",
-      "comment": "여기도",
-      "id": 8
-    },
-    {
-      "boardsid": "1",
-      "comment": "dddd",
-      "id": 9
-    }
-  ],
-  "preference": [
-    {
-      "id": 1,
-      "count": 0
-    },
-    {
-      "id": 2,
-      "count": 0
-    },
-    {
-      "id": 3,
-      "count": 0
-    },
-    {
-      "id": 4,
-      "count": 0
-    }
-  ]
+  "comments": []
 }

@@ -7,23 +7,26 @@ const Comment = ({id}) => {
     const [state,setState] = useState(false)
     const [update,setUpdate] = useState(false)
     const [inputCm,setInputCm] = useState("")
-
+    const [idCheck, setIdCheck] = useState(-1)
     const onChange = (e) =>{
         setInputCm(e.target.value)
     }
-    const updateComment = () => {
+    const updateComment = (id) => {
+        parseInt(id)
         dispatch(updateCommentIdAsync({
-            boardsid:id,
+            id:id,
             comment:inputCm
             })
         )
     }
     const updateBtn = (e) => {
         e.preventDefault()
-        setUpdate(!update)
+        setIdCheck(-1)
     }
-    const deleteComment = (commentid,e) => {
-        e.preventDefault();
+    const updateId = (ids) =>{        
+        setIdCheck(ids)
+    }
+    const deleteComment = (commentid) => {
         dispatch(deleteCommentIdAsync(commentid))
         setState(!state)
     }
@@ -38,22 +41,24 @@ const Comment = ({id}) => {
     },[state])
     return (
     <div className='comment'>   
-        <div className="comment-item">
         {comment.map((comments,index)=>{
             return(
-                <div key={index}>{comments.comment}
-                    <button onClick={()=>deleteComment(comments.id)}>삭제</button>
-                    {update ? <div>
-                                <input></input>
-                                {/* <input value ={inputCm} onChange={onChange}></input> */}
-                                <button onClick={()=>updateComment}>수정하기</button>
-                                </div> : null}
-                    <button onClick={updateBtn}>수정</button>
+                <div key={index}>
+                {idCheck === comments.id ?
+                    <div>
+                        <input value ={inputCm} onChange={onChange}></input>
+                        <button onClick={()=>updateComment(comments.id)}>수정하기</button>
+                        <button onClick={()=>updateBtn}>수정</button>
+                    </div>   
+                    :   <div key={index} className="comment-item">{comments.comment}
+                            <button onClick={()=>deleteComment(comments.id)}>삭제</button>
+                            <button onClick={()=>updateId(comments.id)}>수정</button>    
+                        </div>
+                }
                 </div>
                 )})}
-        </div>
     </div>
   )
 }
 
-export default React.memo(Comment)
+export default Comment

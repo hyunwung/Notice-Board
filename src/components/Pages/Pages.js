@@ -5,6 +5,7 @@ import Comment from '../Comment/Comment'
 import { useParams } from 'react-router-dom'
 import { postCommentIdAsync ,getCommentIdAsync} from "../../redux/modules/comment";
 import { useDispatch } from "react-redux";
+import "./Pages.css";
 
 function Pages() {
     const dispatch = useDispatch();
@@ -32,15 +33,19 @@ function Pages() {
     },[comment])
 
   return (
-    <>  
+    <div className="pages">  
         <Header/>
         <ContentBox>여기엔 내용이 들어갑니당~</ContentBox>
         <CommentContainer>
             <Comment id={id}></Comment>
+            
+        </CommentContainer>
+        <div className="input-box">
             <CommentInput value = {comment} type= "text" onChange={commentHandle}/>
             <CommentBtn onClick={addComment} type="submit">댓글 추가</CommentBtn>
-        </CommentContainer>
-    </>
+        </div>
+        
+    </div>
   )
 }
 

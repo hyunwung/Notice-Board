@@ -22,8 +22,8 @@ export const postCommentIdAsync = createAsyncThunk( // 댓글 달기
 export const updateCommentIdAsync = createAsyncThunk( // 댓글 수정
     "comment/postTodosAsync",
     async (payload) => {
-        const response = await axios.patch(url2+`/${payload}`,{
-          boardsid:payload.boardsid,
+        const response = await axios.patch(url2+`/${payload.id}`,{
+          // boardsid:payload.boardsid,
           comment: payload.comment,
         })
         console.log(response.data)
